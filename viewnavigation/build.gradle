@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply from: rootProject.file('version.gradle')
+
+android {
+    compileSdkVersion buildInfo.compileSdk
+
+    defaultConfig {
+        minSdkVersion buildInfo.minSdk
+        targetSdkVersion buildInfo.compileSdk
+        versionCode buildInfo.versionCode
+        versionName buildInfo.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation libraries.kotlinStdlib
+    implementation libraries.coreKtx
+    implementation libraries.appCompat
+
+    implementation libraries.navigationFragment
+    implementation libraries.navigationUi
+
+    testImplementation libraries.junit
+
+    androidTestImplementation libraries.testRunner
+    androidTestImplementation libraries.espressoCore
+    androidTestImplementation libraries.navigationTesting
+}

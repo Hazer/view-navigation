@@ -1,0 +1,46 @@
+ext.versions = [
+        plugin   : [
+                androidGradle      : '3.2.0-rc02',
+                kotlin             : "1.2.61",
+        ],
+        libraries: [
+                // code library
+                supportLibrary       : "1.0.0-alpha1",
+                navVersion           : "1.0.0-alpha01",
+                threeTenAbp          : "1.1.0",
+
+                // testing library
+                junit                : "4.12",
+                testRunner           : "1.1.0-alpha1",
+                espressoCore         : "3.1.0-alpha1"
+        ]
+]
+
+ext.buildInfo = [
+        minSdk     : 16,
+        compileSdk : 28,
+        targetSdk  : 28,
+        versionCode: 1,
+        versionName: "1.0"
+]
+
+ext.gradlePlugin = [
+        androidGradle      : "com.android.tools.build:gradle:$versions.plugin.androidGradle",
+        kotlin             : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.plugin.kotlin",
+]
+
+ext.libraries = [
+        // android library
+        kotlinStdlib         : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.plugin.kotlin",
+        appCompat            : "androidx.appcompat:appcompat:$versions.libraries.supportLibrary",
+        coreKtx              : "androidx.core:core-ktx:$versions.libraries.supportLibrary",
+        navigationFragment   : "android.arch.navigation:navigation-fragment-ktx:$versions.libraries.navVersion",
+        navigationUi         : "android.arch.navigation:navigation-ui-ktx:$versions.libraries.navVersion",
+
+        // testing library
+        junit                : "junit:junit:$versions.libraries.junit",
+        testRunner           : "androidx.test:runner:$versions.libraries.testRunner",
+        espressoCore         : "androidx.test.espresso:espresso-core:$versions.libraries.espressoCore",
+        navigationTesting    : "android.arch.navigation:navigation-testing-ktx:$versions.libraries.navVersion",
+
+]
